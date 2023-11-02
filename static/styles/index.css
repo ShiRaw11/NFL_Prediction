@@ -1,0 +1,94 @@
+body {
+    font-family: Arial, sans-serif;
+}
+
+header {
+    text-align: center;
+    padding: 20px;
+    background-color: #333;
+    color: #fff;
+}
+
+#dashboard {
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px;
+    
+}
+.select-value {
+    align-items: center;
+    display: flex;
+    width: 80%;
+  
+    justify-content: center;
+}
+.team-select {
+    margin-left: 50px;
+    margin-bottom: 10px;
+ 
+}
+
+.team-select label {
+    display: block;
+    padding-bottom: 5px;
+    font-weight: bold;
+}
+
+select {
+    width: 150px;
+    height: 50px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius:5px;
+}
+.prediction-output {
+    margin-top: 20px;
+}
+#predictButton {
+    border-radius: 8px;
+    border: 1px solid transparent;
+    padding: 0.6em 1.2em;
+    height: 50px;
+    width: 200PX;
+    font-size: 1em;
+    font-weight: 500;
+    color: white;
+    font-family: inherit;
+    background-color: #1a1a1a;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: border-color 0.25s;
+}
+h2{
+    display: flex;
+    justify-content: center;
+    color: rebeccapurple 
+}
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+table, th, td {
+    border: 1px solid rgb(176, 42, 42);
+}
+
+th, td {
+    padding: 10px;
+    text-align: center;
+}
+
+.section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 80vw;
+  
+   
+}
+.perc{
+    color: red;
+    font-weight: bold;
+}

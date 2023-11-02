@@ -1,0 +1,22 @@
+NHL Prediction Guide
+step-by-step tutorial on how to intall the project and and use it to predict the outcomes of NHL games.
+    1.Create and activate virtual environment
+            https://docs.python.org/3/library/venv.html 
+    2.Install dependancies
+            pip install pandas scikit-learn
+    3. Fill in the FULL paths for the dataset in Model.py
+            Replace 'path_to_your_data.csv' with the actual path to your Game_data.csv
+    4. Run Model.py file
+            >>This will create a model (model.pkl), you can change the name.
+            >>it will also return the MSE ans R2 of the prediction.
+            >>it will also plot the prediction outcomes with accuracy.
+    5. Fill in the FULL paths for the dataset in Probabilities.py
+            Replace 'path_to_your_data.csv' with the actual path to your Game_data.csv
+             Replace 'path_to_your_model.pkl' with the actual path to your model.pkl
+    6. Run Probabilities.py file
+            >>this will bring a prompt to enter the name of two teams in the terminal
+            >>it will also print details for team1 and team2 you entered.
+            >>it will then print the possible winning team and by what winning %
+
+        //tips
+        the R2 when you remove PP% is 90%

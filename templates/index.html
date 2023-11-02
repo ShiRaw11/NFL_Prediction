@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NHL 2023-2024 Predictions</title>
+    <link rel="stylesheet"  type= "text/css" href= "{{ url_for('static',filename='styles/index.css')}}">
+</head>
+<body>
+    <header>
+        <h1>NHL 2023-2024 Predictions</h1>
+        <p>Learn about our predictions for the upcoming NHL season. We provide insights on team performance based on historical data and statistical analysis.</p>
+    </header>
+
+    <section id="dashboard">
+        <form class="select-value" action="/predict" method="get">
+        <div class="team-select">
+            <label for="team1">Select Team 1:</label>
+            <select id="team1" name="team1">
+                <option value="MON">MON</option>
+                <option value="TOR">TOR</option>
+                <option value="BOS">BOS</option>
+                <option value="NYR">NYR</option>
+                <option value="CHI">CHI</option>
+                <option value="DET">DET</option>
+                <option value="LA">LA</option>
+                <option value="DAL">DAL</option>
+                <option value="PHI">PHI</option>
+                <option value="PIT">PIT</option>
+                <option value="STL">STL</option>
+                <option value="BUF">BUF</option>
+                <option value="VAN">VAN</option>
+                <option value="CAL">CAL</option>
+                <option value="NYI">NYI</option>
+                <option value="NJ">NJ</option>
+                <option value="WAS">WAS</option>
+                <option value="EDM">EDM</option>
+                <option value="CAR">CAR</option>
+                <option value="COL">COL</option>
+                <option value="ARI">ARI</option>
+                <option value="SJ">SJ</option>
+                <option value="OTT">OTT</option>
+                <option value="TB">TB</option>
+                <option value="ANA">ANA</option>
+                <option value="FLA">FLA</option>
+                <option value="NAS">NAS</option>
+                <option value="WIN">WIN</option>
+                <option value="CLB">CLB</option>
+                <option value="MIN">MIN</option>
+                <option value="VEG">VEG</option>
+            </select>
+        </div>
+        <div class="team-select">
+            <label for="team2">Select Team 2:</label>
+            <select id="team2" name="team2">
+                <option value="MON">MON</option>
+                <option value="TOR">TOR</option>
+                <option value="BOS">BOS</option>
+                <option value="NYR">NYR</option>
+                <option value="CHI">CHI</option>
+                <option value="DET">DET</option>
+                <option value="LA">LA</option>
+                <option value="DAL">DAL</option>
+                <option value="PHI">PHI</option>
+                <option value="PIT">PIT</option>
+                <option value="STL">STL</option>
+                <option value="BUF">BUF</option>
+                <option value="VAN">VAN</option>
+                <option value="CAL">CAL</option>
+                <option value="NYI">NYI</option>
+                <option value="NJ">NJ</option>
+                <option value="WAS">WAS</option>
+                <option value="EDM">EDM</option>
+                <option value="CAR">CAR</option>
+                <option value="COL">COL</option>
+                <option value="ARI">ARI</option>
+                <option value="SJ">SJ</option>
+                <option value="OTT">OTT</option>
+                <option value="TB">TB</option>
+                <option value="ANA">ANA</option>
+                <option value="FLA">FLA</option>
+                <option value="NAS">NAS</option>
+                <option value="WIN">WIN</option>
+                <option value="CLB">CLB</option>
+                <option value="MIN">MIN</option>
+                <option value="VEG">VEG</option>
+            </select>
+        </div>
+    
+    <div class="select-value"><button id="predictButton" type="submit">Predict</button></div>
+</form>
+    <div class="team-data">
+        <h2 >Team Details </h2>
+        <table id="predictionTable" >
+            <tr>
+                <th>Team</th>
+                <th>Abbrev</th>
+                <th>PP%</th>
+                <th>PK%</th>
+                <th>S/GP%</th>
+                <th>PTS%</th>
+                <th>SV/GP</th>
+                <th>AV_Goasls</th>
+                <th>Avg winning %</th>
+                
+            </tr>
+            <tr id="team1Data">
+                <td>{{team_data.team1.team}}</td>
+                <td>{{team_data.team1.abbrev}}</td>
+                <td>{{team_data.team1.pp}}</td>
+                <td>{{team_data.team1.pk}}</td>
+                <td>{{team_data.team1.shots}}</td>
+                <td>{{team_data.team1.pts}}</td>
+                <td>{{team_data.team1.saves}}</td>
+                <td>{{team_data.team1.goals}}</td>
+                <td>{{team_data.team1.wins}}</td>
+               
+                
+            </tr>
+            <tr id="team2Data">
+                <td>{{team_data.team2.team}}</td>
+                <td>{{team_data.team2.abbrev}}</td>
+                <td>{{team_data.team2.pp}}</td>
+                <td>{{team_data.team2.pk}}</td>
+                <td>{{team_data.team2.shots}}</td>
+                <td>{{team_data.team2.pts}}</td>
+                <td>{{team_data.team2.saves}}</td>
+                <td>{{team_data.team2.goals}}</td>
+                <td>{{team_data.team2.wins}}</td>
+        
+            </tr>
+        </table id=''>
+    </div>
+        <div id="prediction-result">
+            <h2>Prediction Result</h2>
+<div class="section">
+    <p>The predicted winner is <span class ='perc' id="predicted-winner"> {{team_data.winning_team}}</span> with a probability % of  <span class ='perc' id="winning-percentage"> {{team_data.win_prob}}</span>%.</p>
+    <p>The predicted loser is <span class ='perc' id="predicted-loser"> {{team_data.losing_team}}</span> with a probability % of  <span class ='perc' id="losing-percentage"> {{team_data.losing_prob}}</span>%.</p>
+    <div id="message-container">
+        <p id="message" style="display: none ;color: rgb(45, 49, 1); font-weight: bold; font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;">Both winning and losing probabilities are the same, of {{team_data.win_prob}} %</p>
+      </div>
+
+            
+        </div>
+        </div>
+    </section>
+
+    <script >
+let winProbability = parseFloat("{{team_data.win_prob}}");
+let loseProbability = parseFloat("{{team_data.losing_prob}}");
+
+  // Check if both probabilities are the same
+  if (winProbability === loseProbability) {
+    // Display the message
+    let messageContainer = document.getElementById("message-container");
+    let message = document.getElementById("message");
+    message.style.display = "block";
+  }
+    </script>
+</body>
+</html>
